@@ -6,7 +6,8 @@
 </head>
 <body>
 <form method="POST" action="/data/">
-    {% csrf_token %}
+{% csrf_token %}
+
     name : <input style="background-color: aqua" type="text" name="name"><br>
     username : <input style="background-color: aqua" type="text" name="user"><br>
     password : <input style="background-color: aqua" type="password" name="passw"><br>
