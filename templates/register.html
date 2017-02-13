@@ -4,15 +4,20 @@
     <meta charset="UTF-8">
     <title>Register Form</title>
 </head>
-<body>
-<form method="POST" action="/data/">
+<body style="background-image: linear-gradient(to right,rgba(0, 212, 80, 0.71), rgba(0, 212, 202, 0.71) )" ">
+<div style="border-radius: 10px; border-style: hidden; width : 300px; background-color: whitesmoke; margin: auto; padding: 25px; position: absolute;right: 60%">
+<form style="font-family:Arial" method="POST" action="/data/">
 {% csrf_token %}
 
-    name : <input style="background-color: aqua" type="text" name="name"><br>
-    username : <input style="background-color: aqua" type="text" name="user"><br>
-    password : <input style="background-color: aqua" type="password" name="passw"><br>
-    <button style="padding: 20px; background-color: antiquewhite ; border-radius: 10%"  type="submit">sign up!</button>
+    <input style="border-radius: 5px; font-size: 15px; width : 42.2%; margin-bottom : 20px; border-style: solid; border-color: darkgray; border-width: 0.5px; color: black; background-color: white; padding: 10px" type="text" placeholder="First Name" name = "fname" autofocus required>
+    <input style="border-radius: 5px; font-size: 15px; width : 42.2%; margin-bottom : 20px; border-style: solid; border-color: darkgray; border-width: 0.5px; color: black; background-color: white; padding: 10px" type="text" placeholder="Last Name" name = "lname" required><br>
+    <input style="border-radius: 5px; font-size: 15px; width : 93%; margin-bottom : 5px; border-style: solid; border-color: darkgray; border-width: 0.5px; color: black; background-color: white; padding: 10px" type="email" placeholder="Email" name = "email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required><br>
+    <input style="border-radius: 5px; font-size: 15px; width : 93%; margin-bottom : 5px; border-style: solid; border-color: darkgray; border-width: 0.5px; color: black; background-color: white; padding: 10px" type="text" placeholder="Username" name = "user" required><br>
+    <input style="border-radius: 5px; font-size: 15px; width : 93%; margin-bottom : 20px; border-style: solid; border-color: darkgray; border-width: 0.5px; color: black; background-color: white; padding: 10px" type="password" placeholder="Password" name = "passw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required><br>
+    <button style="border-radius: 5px; font-size: 15px; width : 100%; color: white; background-color: rgba(0, 212, 202, 0.71); margin-bottom : 20px; border-style: hidden; border-color: darkgray; border-width: 0.5px; padding: 10px;"  type="submit">Sign up to KK</button>
+    <br>Already have an account? <a href="/login/">Sign in!</a>
 </form>
+</div>
 
 </body>
 </html>

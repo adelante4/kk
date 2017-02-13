@@ -8,18 +8,18 @@ from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 def regist(request):
-    print("alleh")
     return render(request, "register.html")
 
 @csrf_exempt
 def submit(request):
-    # if User.objects.filter(request.POST['user']).exists():
-    #     existance = {'message' : 'username already exists'}
-    #     return render(request,"register.html",existance)
-    # else :
+    if User.objects.filter(username=request.POST['user']).exists():
+        existance = {'message' : 'username already exists'}
+        return render(request,"register.html", existance)
+    else:
+        newUser = User.objects.create(fname=request.POST['fname'],lname=request.POST['lname'],email = request.POST['email'],username=request.POST['user'],password=request.POST['passw'])
+        return render(request, "register.html")
 
-    newUser = User.objects.create(name=request.POST['name'],username=request.POST['user'],password=request.POST['passw'])
-    return render(request, "register.html")
+@csrf_exempt
+def login(request):
 
-def menu(request):
-    return render(request, "menu.html")
+    return render(request, "login.html")
