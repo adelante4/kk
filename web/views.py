@@ -23,8 +23,9 @@ def login(request):
     if User.objects.filter(username=request.POST['user']).exists():
         newUser = User.objects.filter(username=request.POST['user']).get()
         if request.POST['passw'] == newUser.password:
-            print('true')
-    return render(request, "welcome.html")
+            return render(request, "welcome.html")
+    else:
+        return render(request,"login.html")
 
 def showLogin(request):
     return render(request, "login.html")
