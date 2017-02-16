@@ -3,6 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Register Form</title>
+    <style>
+
+        .correct {
+            padding: 20px;
+            margin: 20px 0;
+            border : 1px solid;
+            border-right-style: hidden;
+            border-top-style: hidden;
+            border-bottom-style: hidden;
+            border-left-color: lime;
+            border-left-width: 5px;
+            border-radius: 3px;
+            color: lime;
+        }
+        .error {
+            padding: 20px;
+            margin: 20px 0;
+            border : 1px solid;
+            border-right-style: hidden;
+            border-top-style: hidden;
+            border-bottom-style: hidden;
+            border-left-color: red;
+            border-left-width: 5px;
+            border-radius: 3px;
+            color: red;
+        }
+    </style>
 </head>
 <body style="background-image: linear-gradient(to right,rgba(0, 212, 80, 0.71), rgba(0, 212, 202, 0.71) )" ">
 <div style="border-radius: 10px; border-style: hidden; width : 300px; background-color: whitesmoke; margin: auto; padding: 25px; position: absolute;right: 60%">
@@ -15,6 +42,18 @@
     <input style="border-radius: 5px; font-size: 15px; width : 93%; margin-bottom : 5px; border-style: solid; border-color: darkgray; border-width: 0.5px; color: black; background-color: white; padding: 10px" type="text" placeholder="Username" name = "user" required><br>
     <input style="border-radius: 5px; font-size: 15px; width : 93%; margin-bottom : 20px; border-style: solid; border-color: darkgray; border-width: 0.5px; color: black; background-color: white; padding: 10px" type="password" placeholder="Password" name = "passw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required><br>
     <button style="border-radius: 5px; font-size: 15px; width : 100%; color: white; background-color: rgba(0, 212, 202, 0.71); margin-bottom : 20px; border-style: hidden; border-color: darkgray; border-width: 0.5px; padding: 10px;"  type="submit">Sign up to KK</button>
+    <br>
+        {% if error == 'true' %}
+            <div class="error">
+                <h5>{{ message }}</h5>
+            </div>
+        {% endif %}
+        {% if error == 'false' %}
+            <div class="correct">
+                <h5>{{ message }}</h5>
+            </div>
+        {% endif %}
+
     <br>Already have an account? <a href="/login/">Sign in!</a>
 </form>
 </div>
