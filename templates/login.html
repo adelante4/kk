@@ -5,13 +5,24 @@
     <title>login page</title>
 </head>
 <body style="background-image: linear-gradient(to right,rgba(0, 212, 80, 0.71), rgba(0, 212, 202, 0.71) )">
+
+
+
+
+
 <div style="border-radius: 10px; border-style: hidden; width : 300px; background-color: whitesmoke; margin: auto; padding: 25px; position: absolute;right: 60%">
 <form style="font-family:Arial" method="POST" action="/usercheck/">
 {% csrf_token %}
 
-    <input style="border-radius: 5px; font-size: 15px; width : 93%; margin-bottom : 5px; border-style: solid; border-color: darkgray; border-width: 0.5px; color: black; background-color: white; padding: 10px" type="text" placeholder="Username" name = "user" required><br>
+    <input style="border-radius: 5px; font-size: 15px; width : 93%; margin-bottom : 5px; border-style: solid; border-color: darkgray; border-width: 0.5px; color: black; background-color: white; padding: 10px" type="text" placeholder="Username"  name = "user" required><br>
     <input style="border-radius: 5px; font-size: 15px; width : 93%; margin-bottom : 20px; border-style: solid; border-color: darkgray; border-width: 0.5px; color: black; background-color: white; padding: 10px" type="password" placeholder="Password" name = "passw" required><br>
-    <button style="border-radius: 5px; font-size: 15px; width : 100%; color: white; background-color: rgba(0, 212, 202, 0.71); margin-bottom : 20px; border-style: hidden; border-color: darkgray; border-width: 0.5px; padding: 10px;"  type="submit">login</button>
+    <button style="border-radius: 5px; font-size: 15px; width : 100%; color: white; background-color: rgba(0, 212, 202, 0.71); margin-bottom : 20px; border-style: hidden; border-color: darkgray; border-width: 0.5px; padding: 10px;" id="submit" type="submit" onclick="check()">login</button>
+    <br>
+    {% if message %}
+        <div class="bs-callout bs-callout-info">
+            <h5>{{ message }}</h5>
+        </div>
+    {% endif %}
     <br>don't you have an account <a href="/register/">create one!</a>
 </form>
 </div>
