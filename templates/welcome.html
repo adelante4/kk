@@ -9,7 +9,11 @@
     <div style="display: table-cell; border-style: hidden; height: 60px; text-align: center; padding: 20px; color:white">Home</div>
     <div style="display: table-cell; border-style: hidden; height: 60px; text-align: center; padding: 20px; color:white">Home</div>
     <div style="display: table-cell; border-style: hidden; height: 60px; text-align: center; padding: 20px; color:white">Sign up or Sign in</div>
-    <input type="file">
+    <form method="post" action="/upload/" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="myFile">
+        <button type="submit">upload</button>
+    </form>
 </div>
 </body>
 </html>
