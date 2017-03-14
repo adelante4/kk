@@ -1,5 +1,7 @@
 from django.db import models
-
+import os
+from django.dispatch.dispatcher import receiver
+from django.db.models.signals import post_delete
 # Create your models here.
 
 class User(models.Model):
@@ -17,8 +19,8 @@ class File(models.Model):
     file = models.FileField(upload_to='res/')
     user = models.ForeignKey('User')
 
-    def file_link(self):
-        if self.file:
-            return "<a href='%s'>download</a>" % (self.file.url,)
-        else:
-            return "No attachment"
+
+@receiver(post_delete,sender = File)
+def fileDelete(sender, instance, **kwargs):
+    if(instance.file):
+        instance.file.delete(False)
