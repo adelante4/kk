@@ -26,7 +26,7 @@ def login(request):
     if User.objects.filter(username=request.POST['user']).exists():
         newUser = User.objects.filter(username=request.POST['user']).get()
         if request.POST['passw'] == newUser.password:
-            return render(request, "welcome.html")
+            return render(request, "profile.html")
 
     data = {'message': 'wrong username or password!'}
     return render(request, "login.html", data)

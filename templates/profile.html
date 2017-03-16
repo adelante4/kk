@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>profile page</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        .navbar {
+            background-color: #097087;
+            overflow: hidden;
+            width: 100%;
+            cursor: default;
+        }
+
+        .navbar a{
+            float: left;
+            display: block;
+            color: black;
+            text-decoration: none;
+            padding : 14px 16px;
+            text-align: center;
+            font-size: 17px;
+        }
+
+        .navbar a:hover{
+            background-color: #032830;
+            color: #f2f2f2;
+        }
+
+        ul{
+            list-style-type: none;
+            margin:0;
+            padding:0;
+            width: 25%;
+            height:100%;
+            background-color: #032830;
+            color: antiquewhite;
+            position: fixed;
+            overflow: auto;
+            opacity:100;
+            cursor: pointer;
+        }
+
+        li a{
+            display: block;
+            text-decoration: none;
+            color: antiquewhite;
+            padding:14px 16px;
+            font-size:25px;
+        }
+
+        li a:hover{
+            background-color: #097087;
+            color: black;
+        }
+
+        li i:hover{
+            background-color: #097087;
+        }
+
+    </style>
+</head>
+<body style="margin: 0;background-image: linear-gradient(to right,rgba(0, 212, 80, 0.71), rgba(0, 212, 202, 0.71) )">
+<div id="sidebar" style="display: none;">
+    <ul>
+        <li onclick="side_close()"><i class="material-icons">close</i></li>
+        <li><a>shit</a></li>
+        <li><a>adel</a></li>
+        <li><a>yara</a></li>
+        <li><a>parsa</a></li>
+        <li><a>shit</a></li>
+    </ul>
+</div>
+<div class="navbar">
+    <a onclick="side_open()"><i class="material-icons">menu</i></a>
+    <a style="height: 28px; float: right;">Sign out</a>
+    <form id="myForm">
+        <a href="javascript:{}" style="float: right;" onclick="document.getElementById('myForm').submit(); return false;"><i class="material-icons">search</i></a>
+        <input type="text" placeholder="Search..." name="search" width="0" height="1px" style="border-radius: 10em;padding: 9px 10px 9px 32px; float: right; margin-top: 10px; border: solid 1px #ccc;">
+    </form>
+
+</div>
+<script>
+    function side_open(){
+        document.getElementById('sidebar').style.display = "block";
+    }
+    function side_close() {
+        document.getElementById('sidebar').style.display = "none";
+    }
+</script>
+</body>
+</html>
